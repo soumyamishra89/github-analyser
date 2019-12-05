@@ -1,0 +1,24 @@
+{
+  "name": "github-analyser-backend",
+  "version": "1.0.0",
+  "description": "this contains the server code for the github analyser",
+  "main": "src/index.js",
+  "scripts": {
+    "test": "jest"
+  },
+  "keywords": [
+    "github",
+    "nodejs",
+    "expressjs",
+    "passportjs"
+  ],
+  "author": "soumyamishra89",
+  "license": "MIT",
+  "dependencies": {
+    "@octokit/oauth-login-url": "^2.1.2",
+    "@octokit/rest": "^16.35.0",
+    "body-parser": "^1.19.0",
+    "express": "^4.17.1",
+    "lokijs": "^1.5.8"
+  }
+}
