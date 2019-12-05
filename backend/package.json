@@ -15,10 +15,19 @@
   "author": "soumyamishra89",
   "license": "MIT",
   "dependencies": {
-    "@octokit/oauth-login-url": "^2.1.2",
     "@octokit/rest": "^16.35.0",
     "body-parser": "^1.19.0",
     "express": "^4.17.1",
-    "lokijs": "^1.5.8"
+    "lokijs": "^1.5.8",
+    "passport": "^0.4.0",
+    "passport-github": "^1.1.0"
+  },
+  "devDependencies": {
+    "@babel/core": "^7.7.4",
+    "@babel/preset-env": "^7.7.4",
+    "@babel/register": "^7.7.4",
+    "babel-polyfill": "^6.26.0",
+    "jest": "^24.9.0",
+    "nodemon": "^2.0.1"
   }
 }
