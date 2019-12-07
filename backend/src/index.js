@@ -11,7 +11,7 @@ function setupExpress() {
     app.use(bodyParser.json());
     // sets the session for subsequent requests
     app.use(session({
-        secret: process.env.SESSION_SECRET, 
+        secret: process.env.SESSION_SECRET || 'dchashasacjcjo', 
         resave: false,
         saveUninitialized: false
     }));
