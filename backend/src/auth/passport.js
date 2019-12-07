@@ -38,9 +38,9 @@ passport.serializeUser(async function(user, done) {
     }
 });
 
-passport.deserializeUser(function(userId, done) {
+passport.deserializeUser(async function(userId, done) {
     // find the user for the id that was serialised
-    const user = usersService.getUserForId(userId);
+    const user = await usersService.getUserForId(userId);
     done(null, user);
 })
 

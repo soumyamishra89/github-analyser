@@ -5,7 +5,7 @@ const githubRouter = express.Router();
 
 export function configureRouters(app) {
     app.use('/auth', authRouter);
-    app.use('github', githubRouter);
+    app.use('/github', githubRouter);
 }
 
 /**
