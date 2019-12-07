@@ -26,7 +26,7 @@ import githubReposService from "../services/dataservices/githubReposService";
             error: githubRepoInfo.name || errorMessages.invalidRequest
         });        
     } else {        
-        githubReposService.insertGithubRepo(githubRepoInfo);
+        await githubReposService.insertGithubRepo(githubRepoInfo);
         res.status(202).json({
             success: true
         });
@@ -46,6 +46,6 @@ import githubReposService from "../services/dataservices/githubReposService";
         // sort in reverse chronological order
         githubReposOfRequester.sort((gr1, gr2) => +gr2.requestedOn - +gr1.requestedOn);
     }
-    res.status(202).json(githubReposOfRequester);
+    res.status(200).json(githubReposOfRequester);
     
  }

@@ -44,6 +44,10 @@ class Users extends AbstractDBCollection {
     findById(userId) {
         return this.dbCollection.findOne({id: userId});
     }
+
+    removeAll() {
+        this.dbCollection.chain().find().remove();
+    }
 }
 
 export default new Users();

@@ -13,7 +13,7 @@ const githubRepoSchema = schema({
     url: {type: String, required: true},
     commits: {type: Number, required: true},
     openPullRequests: {type: Number, required: true},
-    readme: {type: String, required: true},
+    readme: String,
     requesterId: {type: String, required: true}, // id of the user who requested to fetch this data
     requestedOn: {type: Date, required: true}
 })
@@ -35,8 +35,8 @@ class GithubRepos extends AbstractDBCollection {
         try {
              // validates the github repo schema else throws an error
             await githubRepoSchema.validate(githubRepo);
-            const newGithubRepo = userSchema.parse(githubRepo);
-            return this.dbCollection.insert(newGithubRepo);            
+            const newGithubRepo = githubRepoSchema.parse(githubRepo);
+            return this.dbCollection.insert(newGithubRepo);        
         } catch(err) {
             log.error(err);
             throw Error('Invalid github repo schema');
@@ -45,6 +45,10 @@ class GithubRepos extends AbstractDBCollection {
 
     findByRequesterId(requesterId) {
         return this.dbCollection.find({requesterId});
+    }
+
+    removeAll() {
+        this.dbCollection.chain().find().remove();
     }
 }
 

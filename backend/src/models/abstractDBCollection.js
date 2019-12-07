@@ -20,4 +20,8 @@ export default class AbstractDBCollection {
     findById() {
         throw new Error('Missing implementation');
     }
+
+    removeAll() {
+        throw new Error('Missing implementation');
+    }
 }
