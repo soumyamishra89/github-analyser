@@ -9,10 +9,10 @@ import log from "../../utils/logging";
  * adds or updates an user to the database and returns true if successful
  * @param {*} user 
  */
-async function createOrUpdateUser(user) {
-    log.info('createOrUpdateUser');
+async function insertOrUpdateUser(user) {
+    log.info('insertOrUpdateUser');
     try {
-        await users.createOrUpdate(user);
+        await users.insertOrUpdate(user);
         return true;
     } catch(err) {
         log.error(err);
@@ -31,6 +31,6 @@ async function getUserForId(userId) {
 }
 
 export default {
-    createOrUpdateUser,
+    insertOrUpdateUser,
     getUserForId
 }

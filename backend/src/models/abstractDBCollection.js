@@ -9,7 +9,11 @@ export default class AbstractDBCollection {
         }
     }
     
-    createOrUpdate() {
+    insert() {
+        throw new Error('Missing implementation');
+    }
+
+    insertOrUpdate() {
         throw new Error('Missing implementation');
     }
 

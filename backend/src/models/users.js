@@ -22,7 +22,7 @@ class Users extends AbstractDBCollection {
         super(db.addCollection('users', {indices: ['id', 'email']}));        
     }
 
-    async createOrUpdate(user) {
+    async insertOrUpdate(user) {
         try {
             // validates the user schema else throws an error
             await userSchema.validate(user);

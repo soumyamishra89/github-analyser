@@ -29,7 +29,7 @@ passport.use(new GithubStrategy({
 passport.serializeUser(async function(user, done) {
     if (user) {
         // stores the user in the database
-        const success = await usersService.createOrUpdateUser(user);
+        const success = await usersService.insertOrUpdateUser(user);
         if (success) {
             done(null, user.id);
         } else {

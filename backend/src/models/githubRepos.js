@@ -27,7 +27,7 @@ class GithubRepos extends AbstractDBCollection {
         super(db.addCollection('githubRepos', {indices: ['owner', 'requesterId']}));        
     }
 
-    async createOrUpdate(githubRepo) {
+    async insert(githubRepo) {
         // adds a date if not already present
         if (!githubRepo.requestedOn) {
             githubRepo.requestedOn = new Date();

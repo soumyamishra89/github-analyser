@@ -1,5 +1,5 @@
 import { addHandlersToGithubRouter } from "../router";
-import { fetchGithubRepoInfoHandler } from "../handlers/githubHandlers";
+import { fetchAndStoreGithubRepoInfoHandler, getGithubRepoInfoHandler } from "../handlers/githubHandlers";
 import { verifyLoggedUser } from "../handlers/commonHandlers";
 
 /**
@@ -7,4 +7,6 @@ import { verifyLoggedUser } from "../handlers/commonHandlers";
  * and return a repsonse related to accessing github repos.
  */
 
- addHandlersToGithubRouter('/info/:owner/:repo', 'post', verifyLoggedUser, fetchGithubRepoInfoHandler);
+addHandlersToGithubRouter('/info/:owner/:repo', 'post', verifyLoggedUser, fetchAndStoreGithubRepoInfoHandler);
+
+addHandlersToGithubRouter('/repos', 'get', verifyLoggedUser, getGithubRepoInfoHandler);
