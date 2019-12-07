@@ -3,8 +3,6 @@ import mock from "../__mock__/mock";
 import githubservices from "../services/githubservices";
 import mockData from "../__mock__/mockData.json";
 import githubRepos from "../models/githubRepos";
-// mocks the service module
-jest.mock("../services/githubservices");
 
 describe("Testing Github handlers", () => {
     beforeAll(() => {
@@ -12,7 +10,7 @@ describe("Testing Github handlers", () => {
         // mock data from github service
         fetchGitHubRepoInfoMock.mockImplementation((owner, repo) => {
             if (owner === 'facebook' && repo === 'react') {
-                return mockData.githubInfo
+                return {...mockData.githubInfo}
             } else {
                 return {
                     error: true,
@@ -25,7 +23,7 @@ describe("Testing Github handlers", () => {
     beforeEach(() => {
         // clears the database before each test
         githubRepos.removeAll();
-    })
+    });
 
     it("Test fetchAndStoreGithubRepoInfoHandler success", async () => {
         const request = mock.mockRequest('', {owner: 'facebook', repo: 'react'});        

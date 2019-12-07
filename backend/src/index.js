@@ -23,9 +23,17 @@ function setupExpress() {
     configureRouters(app);
     require('./routes/authRoutes'); //configures the auth routes
     require('./routes/githubRoutes');
-    /** initialise server */
-    const port = process.env.PORT || 8080; // port provided as env variable or 8080
-    app.listen(port, () => log.info(`Application started at port ${port}`))
+
+    if (process.env.NODE_ENV !== 'test') {
+        /** initialise server */
+        const port = process.env.PORT || 8080; // port provided as env variable or 8080
+        app.listen(port, () => log.info(`Application started at port ${port}`));
+    }
+    return app;
 }
 
 setupExpress();
+
+export {
+    setupExpress
+}

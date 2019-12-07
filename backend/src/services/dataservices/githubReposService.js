@@ -18,7 +18,19 @@ async function insertGithubRepo(githubRepo) {
 
 async function findGithubReposByRequesterId(userId) {
     log.info('findGithubReposByRequesterId');
-    return githubRepos.findByRequesterId(userId);
+    let githubReposCollection = await githubRepos.findByRequesterId(userId);
+    if (Array.isArray(githubReposCollection)) {
+        githubReposCollection = githubReposCollection.map(grc => ({
+            owner: grc.owner,
+            name: grc.name,
+            requesterId: grc.requesterId,
+            url: grc.url,
+            commits: grc.commits,
+            openPullRequests: grc.openPullRequests,
+            requestedOn: grc.requestedOn,
+        }));
+    }
+    return githubReposCollection;
 }
 
 export default {

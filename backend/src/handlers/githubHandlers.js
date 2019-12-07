@@ -40,7 +40,6 @@ import githubReposService from "../services/dataservices/githubReposService";
   */
  export async function getGithubRepoInfoHandler(req, res) {   
     const { id } = req.user;
-  
     const githubReposOfRequester = await githubReposService.findGithubReposByRequesterId(id);
     if (Array.isArray(githubReposOfRequester)) {
         // sort in reverse chronological order
