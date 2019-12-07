@@ -13,3 +13,16 @@
 export function githubCallbackHandler(req, res) {
     res.redirect('http://localhost:3000');
 }
+
+/**
+ * Checks if the user is logged in
+ * @param {*} req 
+ * @param {*} res 
+ */
+export function loginstatusHandler(req, res) {
+    if (req.user && req.user.id) {
+        res.status(200).end();
+    } else {
+        res.status(401).end();
+    }
+}
