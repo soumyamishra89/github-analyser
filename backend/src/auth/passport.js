@@ -1,5 +1,6 @@
 import passport from 'passport';
 import { Strategy as GithubStrategy } from 'passport-github';
+import usersService from '../services/dataservices/usersService';
 
 // the client id and secret are to be set as environment variables
 const { CLIENTID, CLIENTSECRET } = process.env;
@@ -7,18 +8,39 @@ const { CLIENTID, CLIENTSECRET } = process.env;
 passport.use(new GithubStrategy({
     clientID: CLIENTID,
     clientSecret: CLIENTSECRET,
-        // scopes: ['repo:invite', 'user:email'],
+    scope: [ 'read:user', 'public_repo', 'user:email' ],
     callbackURL: '/auth/github-oauth-callback'
-}, function(accessToken, refreshToken, profile, callback) {s
-        callback(null, profile);
+}, function(accessToken, refreshToken, profile, callback) {
+        if (profile) {
+            // creates an user from the profile
+            const user = {
+                id: profile.id,
+                name: profile.displayName,
+                email: profile.emails[0].value,
+                access_token: accessToken
+            }
+            callback(null, user);
+        } else {
+            callback(null, null);
+        }
     })
 );
 
-passport.serializeUser(function(user, done) {
-    done(null, user);
+passport.serializeUser(async function(user, done) {
+    if (user) {
+        // stores the user in the database
+        const success = await usersService.createOrUpdateUser(user);
+        if (success) {
+            done(null, user.id);
+        } else {
+            done(null, null);
+        }
+    }
 });
 
-passport.deserializeUser(function(user, done) {
+passport.deserializeUser(function(userId, done) {
+    // find the user for the id that was serialised
+    const user = usersService.getUserForId(userId);
     done(null, user);
 })
 
