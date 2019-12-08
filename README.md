@@ -10,7 +10,7 @@ A github repository analyser which takes in owner and repo name, and provides in
   - github oauth app
 
 # How to run
-1. Docker (http://localhost:8080)
+__1. Docker__ (http://localhost:8080)
  ```
  docker run -e CLIENTID= -e CLIENTSECRET= -p 8080:8080 ssmishra89/github-analyser
  ```
@@ -19,7 +19,7 @@ A github repository analyser which takes in owner and repo name, and provides in
  docker run --env-file ./env.list -p 8080:8080 ssmishra89/github-analyser
  ```
  where ./env.list file contains the CLIENTID and CLIENTSECRET
- or 
+ __2. Docker compose__ 
  ```
  cd /github-analyser
  in docker-compose.yml provide the missing CLIENTID and CLIENT secret and run
@@ -29,7 +29,7 @@ A github repository analyser which takes in owner and repo name, and provides in
  The default port is 8080. To change the port it can passed as environment variable like CLIENTID and CLIENTSECRET.
  e.g.PORT=8000
 
-2. Local setup:
+__3. Local setup:__
  - frontend (http://localhost:3000)
  - backend (http://localhost:8080)
 
@@ -78,3 +78,4 @@ A github oauth app is to be created from which clientID and client secret will b
  - The app does not differentiate if the provided repository is invalid or private. For both the cases it displays similar message to the user.
  - Uses multiple calls to fetch github repsoitory info using githup rest api. Can be optimised.
  - The backend and frontend are served from same domain to avoid CORS issue. Additionaly cookies are used for identifying user session. This prevents the app to be deployed separately as standalone backend and frontend applications. This will not help if a native mobile application is used as client application. The cookie based session needs to be replaced with bearer token to identify user action.
+ -  In memory database needs to be replaced with a persistent one so that data is not lost.
