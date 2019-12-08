@@ -4,7 +4,9 @@
   "description": "this contains the server code for the github analyser",
   "main": "src/index.js",
   "scripts": {
-    "test": "jest"
+    "test": "jest",
+    "start": "nodemon start.js",
+    "build": "rm -rf dist && webpack --mode production"
   },
   "keywords": [
     "github",
@@ -31,6 +33,9 @@
     "babel-polyfill": "^6.26.0",
     "jest": "^24.9.0",
     "nodemon": "^2.0.1",
-    "supertest": "^4.0.2"
+    "supertest": "^4.0.2",
+    "webpack": "^4.41.2",
+    "webpack-cli": "^3.3.10",
+    "webpack-node-externals": "^1.7.2"
   }
 }
