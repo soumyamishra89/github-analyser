@@ -64,7 +64,7 @@ A github oauth app is to be created from which clientID and client secret will b
  - _src/services_: contains module for remote api calls
  - _src/types_: contains typescript types for data 
 
-# Design Decisions and Assumptions
+# Design Decisions
  - Frontend is written in _typescript_ and backend in _javascript_. The create-react-app provides simple setup for typescript. Backend is written in javascript to avoid additional manual setup process.
  - babel is used to be able to write with ES6 features (import instead of require).
  - __LokiJS__ is used as an in memory database as it provided simple setup (simply install and run). But __schm__ package was used to validate the data schema before persisting. This enables replacing LokiJS with mongoDb or other json based database. 
@@ -75,7 +75,7 @@ A github oauth app is to be created from which clientID and client secret will b
  - _datamodels_ are created with class wherease other services are simply used as modules. This was done to allow datamodels to inherit from a standard abstract model that provides an uniform access methods to the database, whereas services are created as standalone modules.
 # Limitation
  - The user can login with github account but as of now, logout option is not provided.
- - The app does not differentiate if the provided repository is invalid or private. For both the cases it displays similar message to the user.
+ - The app does not differentiate if the provided repository is invalid or private. All kinds of error are shown with similar message.
  - Uses multiple calls to fetch github repsoitory info using githup rest api. Can be optimised.
  - The backend and frontend are served from same domain to avoid CORS issue. Additionaly cookies are used for identifying user session. This prevents the app to be deployed separately as standalone backend and frontend applications. This will not help if a native mobile application is used as client application. The cookie based session needs to be replaced with bearer token to identify user action.
  -  In memory database needs to be replaced with a persistent one so that data is not lost.
