@@ -6,43 +6,38 @@ exports[`Test GithubRepoFormComponent rendering Snapshot test with loading: With
   noValidate={true}
   onSubmit={[Function]}
 >
-  <FormGroup>
-    <FormRow>
-      <Col>
-        <FormControl
-          onChange={[Function]}
-          placeholder="Owner"
-          required={true}
-          value=""
+  <FormRow>
+    <Col>
+      <FormControl
+        onChange={[Function]}
+        placeholder="Owner"
+        required={true}
+        value=""
+      />
+    </Col>
+    <Col>
+      <FormControl
+        onChange={[Function]}
+        placeholder="Repo name"
+        required={true}
+        value=""
+      />
+    </Col>
+    <Col>
+      <Button
+        active={false}
+        className="position-relative d-flex justify-content-center align-items-center"
+        disabled={true}
+        type="submit"
+        variant="secondary"
+      >
+        <div
+          className="position-absolute button-loader"
         />
-      </Col>
-      <Col>
-        <FormControl
-          onChange={[Function]}
-          placeholder="Repo name"
-          required={true}
-          value=""
-        />
-      </Col>
-      <Col>
-        <Button
-          active={false}
-          className="position-relative d-flex justify-content-center align-items-center"
-          disabled={true}
-          type="submit"
-          variant="secondary"
-        >
-          <div
-            className="position-absolute button-loader"
-          />
-          Submit
-        </Button>
-      </Col>
-    </FormRow>
-  </FormGroup>
-  <div
-    className="d-flex justify-content-center"
-  />
+        Submit
+      </Button>
+    </Col>
+  </FormRow>
 </Form>
 `;
 
@@ -52,39 +47,34 @@ exports[`Test GithubRepoFormComponent rendering Snapshot test without loading: W
   noValidate={true}
   onSubmit={[Function]}
 >
-  <FormGroup>
-    <FormRow>
-      <Col>
-        <FormControl
-          onChange={[Function]}
-          placeholder="Owner"
-          required={true}
-          value=""
-        />
-      </Col>
-      <Col>
-        <FormControl
-          onChange={[Function]}
-          placeholder="Repo name"
-          required={true}
-          value=""
-        />
-      </Col>
-      <Col>
-        <Button
-          active={false}
-          className="position-relative d-flex justify-content-center align-items-center"
-          disabled={false}
-          type="submit"
-          variant="primary"
-        >
-          Submit
-        </Button>
-      </Col>
-    </FormRow>
-  </FormGroup>
-  <div
-    className="d-flex justify-content-center"
-  />
+  <FormRow>
+    <Col>
+      <FormControl
+        onChange={[Function]}
+        placeholder="Owner"
+        required={true}
+        value=""
+      />
+    </Col>
+    <Col>
+      <FormControl
+        onChange={[Function]}
+        placeholder="Repo name"
+        required={true}
+        value=""
+      />
+    </Col>
+    <Col>
+      <Button
+        active={false}
+        className="position-relative d-flex justify-content-center align-items-center"
+        disabled={false}
+        type="submit"
+        variant="primary"
+      >
+        Submit
+      </Button>
+    </Col>
+  </FormRow>
 </Form>
 `;
