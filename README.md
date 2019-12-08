@@ -40,10 +40,13 @@ __3. Local setup:__
  npm install
 
  cd backend
- CLIENTID= CLIENTSECRET= npm start (CLIENTID and CLIENTSECRET from github oauth app is required)
+ CLIENTID= CLIENTSECRET= npm start
+ npm test (to run the tests)
  
  cd frontend
  npm start
+ npm test (to run the tests)
+ 
 ```
 A github oauth app is to be created from which clientID and client secret will be required to run the application.
 
