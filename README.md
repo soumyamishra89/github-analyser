@@ -19,6 +19,7 @@ __1. Docker__ (http://localhost:8080)
  docker run --env-file ./env.list -p 8080:8080 ssmishra89/github-analyser
  ```
  where ./env.list file contains the CLIENTID and CLIENTSECRET
+ 
  __2. Docker compose__ 
  ```
  cd /github-analyser
@@ -69,10 +70,10 @@ A github oauth app is to be created from which clientID and client secret will b
  - babel is used to be able to write with ES6 features (import instead of require).
  - __LokiJS__ is used as an in memory database as it provided simple setup (simply install and run). But __schm__ package was used to validate the data schema before persisting. This enables replacing LokiJS with mongoDb or other json based database. 
  - Two routers were created to separate auth and github routes. Auth routes provide end point for pinging the server e.g. login status,user login. Github routes provide end point for requesting repository info and summary snapshot from DB.
- - The client id and secret for github oauth app is passed as environment variable to keep it a secret as setting it up locally is simple and can also be used on cloud infrastructure. 
- - _passportjs_ is used for authentication to github app since it provides an unified way of authenticating multiple oauth apps. It can be easily extended to use other oauth login. 
- - _cookies_ are used to identify user session. This way users need not login every time visiting to the same app. Also, additional step of storing the _access token_ on client and sending it wih each request is also not required. The backend server would store the user info in DB and each request can be mapped to the specific user from the cookie session id.
- - _datamodels_ are created with class wherease other services are simply used as modules. This was done to allow datamodels to inherit from a standard abstract model that provides an uniform access methods to the database, whereas services are created as standalone modules.
+ - The client id and secret for github oauth app is passed as _environment variable_ to keep it a secret as setting it up locally is simple and can also be used on cloud infrastructure. 
+ - __passportjs__ is used for authentication to github app since it provides an unified way of authenticating multiple oauth apps. It can be easily extended to use other oauth login. 
+ - __cookies__ are used to identify user session. This way users need not login every time visiting to the same app. Also, additional step of storing the _access token_ on client and sending it wih each request is also not required. The backend server would store the user info in DB and each request can be mapped to the specific user from the cookie session id.
+ - __datamodels__ are created with class wherease other services are simply used as modules. This was done to allow datamodels to inherit from a standard abstract model that provides uniform access methods to the database, whereas services are created as standalone modules.
 # Limitation
  - The user can login with github account but as of now, logout option is not provided.
  - The app does not differentiate if the provided repository is invalid or private. All kinds of error are shown with similar message.
