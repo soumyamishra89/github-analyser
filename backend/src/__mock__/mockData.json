@@ -1,10 +1,28 @@
 {
-    "githubInfo": {
+    "githubInfo": [{
         "owner": "facebook",
         "name": "react",
         "requesterId": "2346",
         "url": "https://github.com/facebook/react",
         "commits": 12633,
         "openPullRequests": 264
-    }
+    },
+    {
+        "owner": "expressjs",
+        "name": "express",
+        "requesterId": "2134",
+        "url": "https://github.com/expressjs/express",
+        "commits": 5558,
+        "openPullRequests": 62
+    }],
+    "users": [{
+        "id": "2346",
+        "name": "ssm", 
+        "email": "someone@something.com"
+    },
+    {
+        "id": "2134",
+        "name": "express", 
+        "email": "express@expressjs.com"
+    }]
 }

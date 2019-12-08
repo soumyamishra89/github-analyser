@@ -28,6 +28,7 @@ async function findGithubReposByRequesterId(userId) {
             commits: grc.commits,
             openPullRequests: grc.openPullRequests,
             requestedOn: grc.requestedOn,
+            readme: grc.readme
         }));
     }
     return githubReposCollection;

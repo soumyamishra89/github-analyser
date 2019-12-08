@@ -43,7 +43,7 @@ async function fetchGitHubRepoInfo(owner, repo, user) {
             url: repoInfo.data.html_url,
             openPullRequests: utils.extractNumberOfPagesFromLink(pullRequests.headers.link),
             commits: utils.extractNumberOfPagesFromLink(commits.headers.link),
-            readme: readme.data.html_url,            
+            readme: readme.data.content,            
             requesterId: id,
         }
     } catch(err) {

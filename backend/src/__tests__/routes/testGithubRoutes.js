@@ -1,10 +1,10 @@
-import githubservices from "../services/githubservices";
-import mockData from "../__mock__/mockData.json";
+import githubservices from "../../services/githubservices";
+import mockData from "../../__mock__/mockData.json";
 import request from 'supertest';
-import { setupExpress } from "..";
-import githubRepos from "../models/githubRepos";
+import { setupExpress } from "../..";
+import githubRepos from "../../models/githubRepos";
 
-jest.mock("../handlers/commonHandlers");
+jest.mock("../../handlers/commonHandlers");
         
 const app = setupExpress();
 describe("Test github apis", () => {
@@ -13,7 +13,7 @@ describe("Test github apis", () => {
         // mock data from github service
         fetchGitHubRepoInfoMock.mockImplementation((owner, repo) => {
             if (owner === 'facebook' && repo === 'react') {
-                return {...mockData.githubInfo}
+                return {...mockData.githubInfo[0]}
             } else {
                 return {
                     error: true,
@@ -22,9 +22,10 @@ describe("Test github apis", () => {
             }
         });
 
-        const { verifyLoggedUser } = require("../handlers/commonHandlers");
-        // the user login status is mocked to test data entry
+        const { verifyLoggedUser } = require("../../handlers/commonHandlers");
+        // the user login status is mocked to test data entry. 
         verifyLoggedUser.mockImplementation((req, res, next) => {
+            // the user is added by passport, hence its mocked for testing
             req.user = {id: '2346'};
             next();
         })
@@ -54,7 +55,7 @@ describe("Test github apis", () => {
     describe("Test /github/repos", () => {
         beforeEach(() => {
             // adds data to be tested for get call
-            githubRepos.insert({...mockData.githubInfo});
+            githubRepos.insert({...mockData.githubInfo[0]});
         });
 
         it("Success", (done) => {

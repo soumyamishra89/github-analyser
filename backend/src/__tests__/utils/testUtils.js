@@ -1,4 +1,4 @@
-import utils from "../utils/utils";
+import utils from "../../utils/utils";
 
 describe("Test utils module", () => {
     it("Test extractNumberOfPagesFromLink valid", () => {

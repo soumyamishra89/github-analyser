@@ -1,8 +1,8 @@
-import { fetchAndStoreGithubRepoInfoHandler, getGithubRepoInfoHandler } from "../handlers/githubHandlers";
-import mock from "../__mock__/mock";
-import githubservices from "../services/githubservices";
-import mockData from "../__mock__/mockData.json";
-import githubRepos from "../models/githubRepos";
+import { fetchAndStoreGithubRepoInfoHandler, getGithubRepoInfoHandler } from "../../handlers/githubHandlers";
+import mock from "../../__mock__/mock";
+import githubservices from "../../services/githubservices";
+import mockData from "../../__mock__/mockData.json";
+import githubRepos from "../../models/githubRepos";
 
 describe("Testing Github handlers", () => {
     beforeAll(() => {
@@ -10,7 +10,7 @@ describe("Testing Github handlers", () => {
         // mock data from github service
         fetchGitHubRepoInfoMock.mockImplementation((owner, repo) => {
             if (owner === 'facebook' && repo === 'react') {
-                return {...mockData.githubInfo}
+                return {...mockData.githubInfo[0]}
             } else {
                 return {
                     error: true,
