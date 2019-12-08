@@ -13,5 +13,6 @@ describe("Test utils module", () => {
         <https://api.github.com/resource>; rel="last"`;
 
         expect(Number(utils.extractNumberOfPagesFromLink(link))).toEqual(0);
+        expect(Number(utils.extractNumberOfPagesFromLink())).toEqual(0);
     });
 })

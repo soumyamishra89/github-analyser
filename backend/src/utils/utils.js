@@ -4,12 +4,14 @@
  * @param {*} link
  */
 function extractNumberOfPagesFromLink(link) {
-    const linkArray = link.split(',');
-    const lastLink = linkArray.find(la => la.includes('rel="last"'));
-    if (lastLink) {
-        const pageMatches = lastLink.match(/(&|\?)page=[0-9]+/g);
-        if (pageMatches && pageMatches.length === 1 && pageMatches[0].includes('=')) {
-            return pageMatches[0].split('=')[1];
+    if (link) {
+        const linkArray = link.split(',');
+        const lastLink = linkArray.find(la => la.includes('rel="last"'));
+        if (lastLink) {
+            const pageMatches = lastLink.match(/(&|\?)page=[0-9]+/g);
+            if (pageMatches && pageMatches.length === 1 && pageMatches[0].includes('=')) {
+                return pageMatches[0].split('=')[1];
+            }
         }
     }
     return 0;
