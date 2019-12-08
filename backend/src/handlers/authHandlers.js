@@ -11,7 +11,7 @@
  * @param {*} res 
  */
 export function githubCallbackHandler(req, res) {
-    res.redirect('http://localhost:3000');
+    res.redirect('/');
 }
 
 /**

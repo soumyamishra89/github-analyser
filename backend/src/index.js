@@ -1,6 +1,7 @@
 import express from 'express';
 import bodyParser from 'body-parser';
 import session from 'express-session';
+import path from 'path';
 import { configureRouters } from './router';
 import log from './utils/logging';
 
@@ -24,6 +25,16 @@ function setupExpress() {
     require('./routes/authRoutes'); //configures the auth routes
     require('./routes/githubRoutes');
 
+    // serves the static frontend files
+    const root = path.join(__dirname, 'web/')
+    app.use(express.static(root))
+    app.use(function(req, res, next) {
+        if (req.method === 'GET' && req.accepts('html') && !req.is('json') && !req.path.includes('.')) {
+            res.sendFile('index.html', { root })
+        } else {
+            next()
+        }
+    })  
     if (process.env.NODE_ENV !== 'test') {
         /** initialise server */
         const port = process.env.PORT || 8080; // port provided as env variable or 8080
