@@ -6,7 +6,7 @@
         "clean": "rm -rf ./dist",
         "buildBackend": "cd backend && rm -rf node_modules && rm -rf dist && npm install && npm run build && mv ./dist ../ && cp -R ./package*.json ../dist && cd ../dist && npm install --only=prod && rm ./*.json && cd ..",
         "buildFrontend": "cd frontend && rm -rf node_modules && rm -rf build && npm install && npm run build && cp -R ./build/. ../dist/web && cd ../dist/web/static/js",
-        "buildDocker": "npm run clean && npm run buildBackend && npm run buildFrontend && docker build -t ssm/github-analyser .",
+        "buildDocker": "npm run clean && npm run buildBackend && npm run buildFrontend && docker build -t ssmishra89/github-analyser .",
         "start": "cd backend && npm start && cd ../frontend && npm start"
     }
 }

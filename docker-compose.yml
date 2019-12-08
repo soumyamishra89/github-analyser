@@ -1,5 +1,5 @@
 github-analyser:
-    image: ssm/github-analyser
+    image: ssmishra89/github-analyser
     ports:
       - 8080:8080
     environment:

@@ -31,11 +31,11 @@ A github oauth app is to be created which from which clientID and client secret 
 
 ## run from docker (http://localhost:8080)
  ```
- docker run -e CLIENTID="" CLIENTSECRET="" -p 8080:8080 ssm/github-analyser:latest
+ docker run -e CLIENTID="" CLIENTSECRET="" -p 8080:8080 ssmishra89/github-analyser
  
  or 
  
- docker run --env-file ./env.list -p 8080:8080 ssm/github-analyser:latest
+ docker run --env-file ./env.list -p 8080:8080 ssmishra89/github-analyser
  
  or cd /github-analyser
  in docker-compose.yml provide the missing CLIENTID and CLIENT secret and run
