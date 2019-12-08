@@ -1,6 +1,6 @@
 import React from 'react';
 import { GithubRepo, AppState } from '../types';
-import { Table, Modal } from 'react-bootstrap';
+import { Modal } from 'react-bootstrap';
 import { connect } from 'react-redux';
 import Markdown from 'react-markdown';
 

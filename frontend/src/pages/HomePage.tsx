@@ -1,7 +1,6 @@
 import React from 'react';
 import { LoggedStatus, AppState } from '../types';
 import { connect } from 'react-redux';
-import GithubRepoFormComponent from '../components/GithubRepoFormComponent';
 import GithubRepoTableComponent from '../components/GithubRepoTableComponent';
 import { mapGithubDispatchToProps } from '../redux/dispatchMapping';
 
@@ -20,7 +19,7 @@ class HomePage extends React.PureComponent<Props> {
     render() {
         return (
             <div className="page">
-            {this.props.loggedStatus === LoggedStatus.LOGGED_OUT ? <a className="btn btn-social btn-github" href="http://localhost:8080/auth/github-login">
+            {this.props.loggedStatus === LoggedStatus.LOGGED_OUT ? <a className="btn btn-social btn-github" href="/auth/github-login">
                 <span className="fa fa-github"></span>
                 {"Login with Github"}</a> :    
                 <GithubRepoTableComponent />

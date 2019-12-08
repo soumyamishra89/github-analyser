@@ -1,11 +1,12 @@
 import React from 'react';
 import api from '../services/remote/api';
-import { Form, Button, Col, Row } from 'react-bootstrap';
+import { Form, Button, Col } from 'react-bootstrap';
 import { connect } from 'react-redux';
 import { mapGithubDispatchToProps } from '../redux/dispatchMapping';
-import { AppState } from '../types';
+import { AppState, LoggedStatus } from '../types';
 
 interface Props {
+    loggedStatus: LoggedStatus,
     loadGithubRepos: () => void,
     isGithubReposLoading: boolean;
 }
@@ -66,35 +67,32 @@ export class GithubRepoFormComponent extends React.PureComponent<Props, State> {
     }
 
     render() {     
-        
+        if (this.props.loggedStatus === LoggedStatus.LOGGED_OUT) {
+            return null;
+        }
         return (
             <Form noValidate validated={this.state.validated} onSubmit={this.postGithubInfo}>
-                <Form.Group>
-                    <Form.Row>
-                        <Col >
-                            <Form.Control placeholder="Owner" required onChange={this.onOwnerChange} value={this.state.owner}/>
-                        </Col>
-                        <Col>
-                            <Form.Control placeholder="Repo name" required onChange={this.onRepoChange} value={this.state.reponame}/>
-                        </Col>
-                        <Col>
-                        <Button variant={this.state.loading ? "secondary" : "primary"} type="submit" className="position-relative d-flex justify-content-center align-items-center" disabled={this.state.loading}>
-                            {this.state.loading && <div className="position-absolute button-loader"></div>}
-                            Submit
-                        </Button>
-                        </Col>
-                    </Form.Row>
-
-                </Form.Group>
-                <div className="d-flex justify-content-center">
-                
-                </div>
+                <Form.Row>
+                    <Col >
+                        <Form.Control placeholder="Owner" required onChange={this.onOwnerChange} value={this.state.owner}/>
+                    </Col>
+                    <Col>
+                        <Form.Control placeholder="Repo name" required onChange={this.onRepoChange} value={this.state.reponame}/>
+                    </Col>
+                    <Col>
+                    <Button variant={this.state.loading ? "secondary" : "primary"} type="submit" className="position-relative d-flex justify-content-center align-items-center" disabled={this.state.loading}>
+                        {this.state.loading && <div className="position-absolute button-loader"></div>}
+                        Submit
+                    </Button>
+                    </Col>
+                </Form.Row>
             </Form>
         )
     }
 }
 
 const mapStateToProps = (state: AppState) => ({
+    loggedStatus: state.loggedStatus,
     isGithubReposLoading: state.isGithubReposLoading
 });
 
