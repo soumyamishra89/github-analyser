@@ -38,8 +38,17 @@ function setupExpress() {
     if (process.env.NODE_ENV !== 'test') {
         /** initialise server */
         const port = process.env.PORT || 8080; // port provided as env variable or 8080
-        app.listen(port, () => log.info(`Application started at port ${port}`));
+        const server = app.listen(port, () => log.info(`Application started at port ${port}`));
+
+        // listens on kill command to close the server
+        process.on('SIGINT', () => {
+            console.log('Received SIGINT. stopping server');
+            server.close();
+            process.exit();
+        });
     }
+
+    
     return app;
 }
 
