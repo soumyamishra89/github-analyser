@@ -16,20 +16,25 @@ A github repository analyser which takes in owner and repo name, and provides in
 ```sh
  unzip github-analyser.zip 
  cd github-analyser
+ npm install
+
  cd backend
- npm install
  CLIENTID= CLIENTSECRET= npm start (CLIENTID and CLIENTSECRET from github oauth app is required)
+ 
  cd frontend
- npm install
  npm start
 ```
 A github oauth app is to be created which from which clientID and client secret will be required to run the application.
 
-
 ## run from docker
  ```
  docker run -e CLIENTID="" CLIENTSECRET="" -p 8080:8080 ssm/github-analyser:latest
+ 
+ or 
+ 
+ docker run --env-file ./env.list -p 8080:8080 ssm/github-analyser:latest
  ```
+ where ./env.list file contains the CLIENTID and CLIENT SECRET
 
 # Package structure
 ## backend
