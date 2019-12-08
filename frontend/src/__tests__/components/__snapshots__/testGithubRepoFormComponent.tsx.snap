@@ -1,0 +1,90 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Test GithubRepoFormComponent rendering Snapshot test with loading: With Loading 1`] = `
+<Form
+  inline={false}
+  noValidate={true}
+  onSubmit={[Function]}
+>
+  <FormGroup>
+    <FormRow>
+      <Col>
+        <FormControl
+          onChange={[Function]}
+          placeholder="Owner"
+          required={true}
+          value=""
+        />
+      </Col>
+      <Col>
+        <FormControl
+          onChange={[Function]}
+          placeholder="Repo name"
+          required={true}
+          value=""
+        />
+      </Col>
+      <Col>
+        <Button
+          active={false}
+          className="position-relative d-flex justify-content-center align-items-center"
+          disabled={true}
+          type="submit"
+          variant="secondary"
+        >
+          <div
+            className="position-absolute button-loader"
+          />
+          Submit
+        </Button>
+      </Col>
+    </FormRow>
+  </FormGroup>
+  <div
+    className="d-flex justify-content-center"
+  />
+</Form>
+`;
+
+exports[`Test GithubRepoFormComponent rendering Snapshot test without loading: Without Loading 1`] = `
+<Form
+  inline={false}
+  noValidate={true}
+  onSubmit={[Function]}
+>
+  <FormGroup>
+    <FormRow>
+      <Col>
+        <FormControl
+          onChange={[Function]}
+          placeholder="Owner"
+          required={true}
+          value=""
+        />
+      </Col>
+      <Col>
+        <FormControl
+          onChange={[Function]}
+          placeholder="Repo name"
+          required={true}
+          value=""
+        />
+      </Col>
+      <Col>
+        <Button
+          active={false}
+          className="position-relative d-flex justify-content-center align-items-center"
+          disabled={false}
+          type="submit"
+          variant="primary"
+        >
+          Submit
+        </Button>
+      </Col>
+    </FormRow>
+  </FormGroup>
+  <div
+    className="d-flex justify-content-center"
+  />
+</Form>
+`;

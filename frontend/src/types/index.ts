@@ -10,9 +10,9 @@ export interface GithubRepo {
     url: string,
     commits: number,
     openPullRequests: number,
-    readme: string,
+    readme?: string,
     requesterId: string, // id of the user who requested to fetch this data
-    requestedOn: Date
+    requestedOn?: Date
 }
 
 export enum LoggedStatus {

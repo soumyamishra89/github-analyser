@@ -12,7 +12,7 @@ interface State {
     readmeToShow?: string
 }
 
-class GithubRepoTableComponent extends React.PureComponent<Props, State> {
+export class GithubRepoTableComponent extends React.PureComponent<Props, State> {
 
     state: State = {};
 

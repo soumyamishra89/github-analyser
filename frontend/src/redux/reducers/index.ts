@@ -10,7 +10,7 @@ function loggedStatusReducer(state: LoggedStatus = LoggedStatus.LOGGED_OUT, acti
 
 function githubReposReducer(state: GithubRepo[] = [], action: ReduxAction) {
     switch(action.type) {
-        case ReduxActionType.GITHUB_REPO: return action.data;
+        case ReduxActionType.GITHUB_REPO: return action.data || state;
         default: return state;
     }
 }

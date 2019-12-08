@@ -1,0 +1,104 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Test GithubRepoTableComponent rendering Snapshot test with data: With data 1`] = `
+<Fragment>
+  <table
+    className="ml-2 mr-2 table table-striped table-bordered table-hover table-layout"
+  >
+    <thead>
+      <tr>
+        <th>
+          Owner
+        </th>
+        <th>
+          Repo name
+        </th>
+        <th>
+          Url
+        </th>
+        <th>
+          Commits
+        </th>
+        <th>
+          Open pull requests
+        </th>
+        <th>
+          Readme
+        </th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr
+        key="0"
+      >
+        <td>
+          facebook
+        </td>
+        <td>
+          react
+        </td>
+        <td>
+          <a
+            href="https://github.com/facebook/react"
+          >
+            https://github.com/facebook/react
+          </a>
+        </td>
+        <td>
+          12633
+        </td>
+        <td>
+          264
+        </td>
+        <td>
+          <button
+            className="link-button"
+            onClick={[Function]}
+          >
+            Show Readme
+          </button>
+        </td>
+      </tr>
+      <tr
+        key="1"
+      >
+        <td>
+          expressjs
+        </td>
+        <td>
+          express
+        </td>
+        <td>
+          <a
+            href="https://github.com/expressjs/express"
+          >
+            https://github.com/expressjs/express
+          </a>
+        </td>
+        <td>
+          5558
+        </td>
+        <td>
+          62
+        </td>
+        <td>
+          <button
+            className="link-button"
+            onClick={[Function]}
+          >
+            Show Readme
+          </button>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+</Fragment>
+`;
+
+exports[`Test GithubRepoTableComponent rendering Snapshot test without data: Without data 1`] = `
+<div
+  className="d-flex justify-content-center align-item-center"
+>
+  Add a repository from github to show analysis
+</div>
+`;

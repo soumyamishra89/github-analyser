@@ -17,7 +17,7 @@ interface State {
     loading?: boolean
 } 
 
-class GithubRepoFormComponent extends React.PureComponent<Props, State> {
+export class GithubRepoFormComponent extends React.PureComponent<Props, State> {
 
     state: State = {
         owner: '',
