@@ -12,7 +12,8 @@ A github repository analyser which takes in owner and repo name, and provides in
 # How to run
 
  ## Local setup:
-    
+After unzipping the file,
+goto /github-analyser/frontend/pages/HomePage.tsx and replace href="/auth/github-login" with href="http://localhost:8080/auth/github-login" in line 22 to be able to run frontend and backend as separate servers for development purpose
 ```sh
  unzip github-analyser.zip 
  cd github-analyser
@@ -33,6 +34,10 @@ A github oauth app is to be created which from which clientID and client secret 
  or 
  
  docker run --env-file ./env.list -p 8080:8080 ssm/github-analyser:latest
+ 
+ or cd /github-analyser
+ in docker-compose.yml provide the missing CLIENTID and CLIENT secret and run
+ docker-compose up github-analyser
  ```
  where ./env.list file contains the CLIENTID and CLIENT SECRET
 
