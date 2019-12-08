@@ -12,6 +12,8 @@ A github repository analyser which takes in owner and repo name, and provides in
 # How to run
 
  ## Local setup:
+ ### frontend (http://localhost:3000)
+ ### backend (http://localhost:8080)
 After unzipping the file,
 goto /github-analyser/frontend/pages/HomePage.tsx and replace href="/auth/github-login" with href="http://localhost:8080/auth/github-login" in line 22 to be able to run frontend and backend as separate servers for development purpose
 ```sh
@@ -27,7 +29,7 @@ goto /github-analyser/frontend/pages/HomePage.tsx and replace href="/auth/github
 ```
 A github oauth app is to be created which from which clientID and client secret will be required to run the application.
 
-## run from docker
+## run from docker (http://localhost:8080)
  ```
  docker run -e CLIENTID="" CLIENTSECRET="" -p 8080:8080 ssm/github-analyser:latest
  
@@ -39,7 +41,10 @@ A github oauth app is to be created which from which clientID and client secret 
  in docker-compose.yml provide the missing CLIENTID and CLIENT secret and run
  docker-compose up github-analyser
  ```
- where ./env.list file contains the CLIENTID and CLIENT SECRET
+ where ./env.list file contains the CLIENTID and CLIENTSECRET
+ The default port is 8080. The app will be available at http://localhost:8080.
+ To change the port it can passed as environment variable like CLIENTID and CLIENTSECRET.
+ e.g.PORT=8000
 
 # Package structure
 ## backend
