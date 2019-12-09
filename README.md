@@ -1,5 +1,6 @@
 # Github-analyser
 https://github.com/soumyamishra89/github-analyser
+
 A github repository analyser which takes in owner and repo name, and provides info about the repository. It works on public repositories only
 
 # Prerequisites
