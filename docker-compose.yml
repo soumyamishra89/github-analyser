@@ -2,6 +2,5 @@ github-analyser:
     image: ssmishra89/github-analyser
     ports:
       - 8080:8080
-    environment:
-      - CLIENTID=
-      - CLIENTSECRET=
+    env_file:
+      - secret.env

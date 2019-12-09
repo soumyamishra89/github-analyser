@@ -3,4 +3,4 @@
 .DS_Store
 dist
 backend/src/web
-env.list
+secret.env
