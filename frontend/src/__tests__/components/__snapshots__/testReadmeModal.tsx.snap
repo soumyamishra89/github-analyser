@@ -1,0 +1,28 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Test ReadmeModal rendering Snapshot test rendering readme modal: Rendering readme modal 1`] = `
+<Bootstrap(Modal)
+  aria-labelledby="contained-modal-title-vcenter"
+  centered={true}
+  onHide={[MockFunction]}
+  show={true}
+  size="lg"
+>
+  <div
+    className="pl-2 pr-2"
+  >
+    <ReactMarkdown
+      astPlugins={Array []}
+      escapeHtml={true}
+      parserOptions={Object {}}
+      plugins={Array []}
+      rawSourcePos={false}
+      renderers={Object {}}
+      skipHtml={false}
+      source="IyBHaXRodWItYW5hbHlzZXINCmh0dHBzOi8vZ2l0aHViLmNvbS9zb3VteWFtaXNocmE4OS9naXRodWItYW5hbHlzZXINCkEgZ2l0aHViIHJlcG9zaXRvcnkgYW5hbHlzZXIgd2hpY2ggdGFrZXMgaW4gb3duZXIgYW5kIHJlcG8gbmFtZSwgYW5kIHByb3ZpZGVzIGluZm8gYWJvdXQgdGhlIHJlcG9zaXRvcnkuIEl0IHdvcmtzIG9uIHB1YmxpYyByZXBvc2l0b3JpZXMgb25seQ=="
+      sourcePos={false}
+      transformLinkUri={[Function]}
+    />
+  </div>
+</Bootstrap(Modal)>
+`;

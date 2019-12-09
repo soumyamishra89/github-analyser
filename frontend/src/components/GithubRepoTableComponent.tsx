@@ -72,7 +72,7 @@ interface ReadmeProps {
     readme: string
 }
 
-function ReadmeModal(props: ReadmeProps) {
+export function ReadmeModal(props: ReadmeProps) {
     return (
         <Modal
             show={true}
